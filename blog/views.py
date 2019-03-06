@@ -1,33 +1,64 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
+import json
+from django.core import serializers
 from blog.models import *
+
 from django.shortcuts import render_to_response
-import pymysql
+from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, HttpResponseRedirect
+from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
 
-def select(sql):
-    conn = pymysql.connect(user='root', passwd='123456', host='172.16.3.98', charset='utf8')
-    cur = conn.cursor()
-    conn.select_db('un2')
-    cur.execute(sql)
-    conn.commit()
-    aa = cur.fetchone()
-    cur.close()
-    conn.close()
-    return aa
+from django.contrib.sessions.backends.db import SessionStore
+from django.contrib.sessions.models import Session
 
+
+def login(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            if user.is_active:
+                auth_login(request, user)
+                return HttpResponseRedirect('/')
+            else:
+                return HttpResponse('用户没有启用!')
+        else:
+            return HttpResponse('用户名或者密码错误！')
+    else:
+        return render_to_response('login.html')
+
+
+def loginout(request):
+    auth_logout(request)
+    return HttpResponseRedirect('/login/')
+
+@login_required
 def index(req):
-    DB = IP.objects.all()[0].db
-    YY = IP.objects.all()[0].yy
-#     ss = r"docker run -d --restart=always --name drgs \
-# --net huoshu --ip 172.21.1.5 -p 9998:9998 \
-# -e ORACLE_ADDR=%s:1521:orcl \
-# -e LANG='en_US.UTF-8' \
-# -e HDC_ADDR=%s \
-# -v /var/log/drgs:/opt/drgs/log " % (DB,YY)
-#     sql= 'select yy from blokg_ip'
-    sql = "select logdir from blog_dep where yyname='drgs'"
-    ss = select(sql)[0]
-    return render_to_response('index.html', {'ss': ss})
+    return render_to_response('index.html')
+
+
+def get(req):
+    modules_info = []
+    data = {}
+    province = serializers.serialize("json", IP.objects.all())
+    data["data"] = json.loads(province)
+
+    for i in data["data"]:
+        yy = i['fields']['yy']
+        db = i['fields']['db']
+        modules_info.append([yy, db])
+        resp = {"draw": 1, "recordsTotal": 2, "recordsFiltered": 2, "data": modules_info}  # 拼接
+    return HttpResponse(json.dumps(resp), content_type="application/json")
+
+
+
+#
+# def index(req):
+#     ss = '123'
+#     return render_to_response('index.html', {'ss': ss})
 
 
 

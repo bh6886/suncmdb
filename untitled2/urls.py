@@ -16,7 +16,24 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from blog.views  import *
+from django.views.generic import TemplateView
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', index),
+    url(r'^index1', TemplateView.as_view(template_name="index_1.html")),
+    url(r'^undefined', TemplateView.as_view(template_name="index_1.html")),
+    url(r'^table', TemplateView.as_view(template_name="table.html")),
+    url(r'^dep', TemplateView.as_view(template_name="dep.html")),
+    url(r'^login/$', login),
+    url(r'^loginout/$', loginout),
+    url(r'^accounts/login/$', login),
+    url(r'^get', get),
+
+
+
+    # url(r'^get', get),
+    # url(r'^table', TemplateView.as_view(template_name="table.html")),
 ]
+
+

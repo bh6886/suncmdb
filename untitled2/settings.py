@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'suit',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -44,7 +45,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+   # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -77,14 +78,26 @@ WSGI_APPLICATION = 'untitled2.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        #'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'un2',
-        'USER': 'root',
+        'USER': 'postgres',
         'PASSWORD' : '123456',
-        'HOST' : '172.16.3.98',
+        'HOST' : '172.16.4.200',
+        'PORT' : '30006',
     }
 }
-
+# DATABASES = {
+#     'default': {
+#         #'ENGINE': 'django.db.backends.mysql',
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'kong',
+#         'USER': 'kong',
+#         'PASSWORD' : 'kong',
+#         'HOST' : '192.168.169.31',
+#         'PORT' : '5432',
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
@@ -117,8 +130,14 @@ USE_L10N = True
 
 USE_TZ = True
 
-
+SESSION_COOKIE_AGE=60*10 #10 mins
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = "F://untitled2/static/admin/"
+HERE = os.path.dirname(os.path.abspath(__file__))
+HERE = os.path.join(HERE, '../')
+STATICFILES_DIRS = (
+    os.path.join(HERE, 'static/'),
+)

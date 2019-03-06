@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>deploy</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/4.1.0.rc2/echarts.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="/static/echarts.min.js"></script>
+ <style>
+iframe {width:500px;height:90px;}
+ body{
+   /*background: blue;*/
+   background-repeat: no-repeat;
+   background-size:100% 100%;
+   background-attachment: fixed;
+   background-image:url('/static/bj.jpg')
+
+   }
+.STYLE9 {
+        color: #FFFFFF;
+}
+.four{
+    margin:10px;
+}
+
+</style>
+</head>
+<body>
+
+
+<div class="page-header">
+        <h1 align="center" class="STYLE9">Sky-mobi部署页面</h1>
+        <h5 align="center" class="STYLE9"><strong>服务器时间:{{time.0}}
+       <!-- <button type="button" class="btn btn-primary btn-xs" onClick="window.open('/sun/admin','_self')">跳转ops后台</button> -->
+        <!-- <button type="button" class="btn btn-primary btn-xs" onClick="window.open('http://192.168.169.26/loginout/','_blank')">用户退出</button> -->
+        </strong></h5>
+    </div>
+<div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <span class="STYLE9">
+                        <h3 align="center" class="STYLE9"><strong>杭州斯凯网络</strong></h3>
+                             斯凯网络是移动互联网平台的自主创新者。2005年，斯凯网络推出了冒泡平台。作为第一个完全由中国自主研发的手机软件平台，冒泡平台实现了国产手机智能化和软件平台的统一，
+                        同时开创了中国的“APPStore”，并首创软件“免费推广”模式。斯凯成功将手机产业链上下游的厂商、制造商、移动增值服务商SP、手机应用和游戏开发商CP、移动运营商、
+                        移动终端消费者等全部纳入冒泡平台，完成了构建中国最为完整的移动互联网生态体系的壮举，彻底改变了手机软件行业的商业模式。斯凯已经发展成为移动互联网应用平台企业，
+                        累积海内外用户数已达12亿，下载次数突破110亿次，位列全球第三。旗下现有千龙科技、魔品科技、泰酷科技、破晓科技、powerplay等五家子公司，
+                        涉足包含棋牌游戏、流量经营、多媒体运营、海外市场等多个领域，一个集移动娱乐于一身的斯凯帝国蓝图正逐渐形成。
+                        </span>
+                </div>
+         </div>
+
+
+
+</div>
+<br>
+<div class="container">
+                <!-- <div class="col-md-2"> -->
+                  <div class="col-md-2">
+                    <ul class="nav nav-pills nav-stacked"  style="height: 330px;">
+                        <li class="active"><a href="#panel-13" data-toggle="tab"><strong>A+加速器相关</strong></a></li>
+                       <!-- <li><a href="#panel-14" data-toggle="tab"><strong>mis相关</strong></a></li> -->
+                        <li><a href="#panel-15" data-toggle="tab"><strong>金融大数据</strong></a> </li>
+                        <li><a href="#panel-17" data-toggle="tab"><strong>支付相关</strong></a></li>
+                        <li><a href="#panel-18" data-toggle="tab"><strong>社区相关</strong></a></li>
+                        <li><a href="#panel-16" data-toggle="tab"><strong>其他</strong></a></li>
+                     <!--   <li><a href="#panel-17" data-toggle="tab"><strong>发布4</strong></a></li>
+                        <li><a href="#panel-18" data-toggle="tab"><strong>发布5 </strong></a></li>
+                        <li><a href="#panel-19" data-toggle="tab"><strong>发布6</strong></a></li>
+                        <li><a href="#panel-20" data-toggle="tab"><strong>发布7</strong></a></li>    -->
+                    </ul>
+                </div>
+                    <div class="col-md-10" style="height: 500px;">
+                        <div class="tab-content">
+                            <div class="btn-group" role="group" aria-label="..."></div>
+                            <div class="tab-pane active" id="panel-13">
+                                <p><span class="STYLE9"><strong>A+ applus服务</strong></span></p>
+                                    <button class="btn btn-warning " type="button" onClick="window.open('/sun/A/A_ipset_index','_self')">Ipset文件更新</button>
+                                    <button class="btn btn-primary " type="button" onClick="window.open('/sun/A/A_applus_index','_self')">阿里云app-accelerator</button>
+                                 <p></p>
+                                 <br>
+                                 <p><span class="STYLE9">以下cms与web服务是在阿里云applus02单点上，两个工程用一个tomcat启动</span></p>
+                                    <div class="btn-group btn-group">
+                                    <button class="btn btn-primary " type="button" onClick="window.open('/sun/A/A_appluscms_index','_self')">app-accelerator-cms</button>
+                                    <button class="btn btn-primary " type="button" onClick="window.open('/sun/A/A_applusweb_index','_self')">app-accelerator-web</button>
+                                    <button class="btn btn-primary " type="button" onClick="window.open('/sun/A/A_applus_common_cms_index','_self')">app-accelerator-common-cms</button>
+                                     </div><p>
+                                  <p><span class="STYLE9">以下cybercafe,common-mis服务是在阿里云applus01,02上</span></p>
+                                    <button class="btn btn-primary " type="button" onClick="window.open('/sun/A/A_cyapplus_index','_self')">cybercafe-accelerator</button>
+                                    <button class="btn btn-primary " type="button" onClick="window.open('/sun/A/A_misapplus_index','_self')">accelerator-common-mis</button>
+                                <p>
+                            </div>
+                      <!--      <div class="tab-pane " id="panel-14">
+                              <div class="btn-group btn-group">
+                                <button class="btn btn-primary " type="button" onClick="window.open('/sun/mis_adv_index','_self')">zm-adv-mis指盟广告</button>
+                            </div>
+                                <button class="btn btn-primary " type="button" onClick="window.open('/sun/mis_nvl_index','_self')">zm-adv-mis小说 爬虫</button>
+                            </div>  -->
+                           <!--     <p><span class="STYLE9"><strong>申请docker测试机</strong></span></p>
+                                <div class="btn-group btn-group">
+                                    <button class="btn btn-primary " type="button" onClick="window.open('/sun/docker/docker_file','_self')">生成image,再启动docker页面</button>
+                                </div>
+                                    <button class="btn btn-primary " type="button" onClick="window.open('/sun/docker/docker_F1','_self')">生成docker入库，然后启动Docker</button>
+                                    <button class="btn btn-primary " type="button" onClick="window.open('/sun/docker/docker','_self')">单生成docker容器页面</button>
+                                    <p></p>
+                                    <button class="btn btn-primary " type="button" onClick="window.open('/sun/docker/k8s_test','_self')">k8s生成pods生成页面</button> -->
+                               <div class="tab-pane " id="panel-15">
+                                <p><span class="STYLE9"><strong>第二工作室</strong></span></p>
+                                <p><span class="STYLE9">腾讯云docker部署</span></p>
+                                <div class="btn-group btn-group">
+                                    <button class="btn btn-warning " type="button" onClick="window.open('/sun/docker/docker_pull_133_20_v','_self')">健步宝vitality</button>
+                                    <button class="btn btn-warning " type="button" onClick="window.open('/sun/docker/docker_pull_133_20_vs','_self')">健步宝vitality-support</button>
+                                </div>
+                                    <button class="btn btn-warning " type="button" onClick="window.open('/sun/docker/docker_pull_133_20_hwk','_self')">惠玩咔部署huiwanka</button>
+                                <p></p><p></p>
+                                <div class="btn-group btn-group">
+                                    <button class="btn btn-primary " type="button" onClick="window.open('/sun/pay/sms_platform_server_index','_self')">sms_platform_server</button>
+                                    <button class="btn btn-primary " type="button" onClick="window.open('/sun/maopao/sms_platform_server_cmpp_index','_self')">sms_platform_server_cmpp</button>
+                                </div>
+                                    <button class="btn btn-primary " type="button" onClick="window.open('/sun/maopao/url_redirect_plat_index','_self')">url_redirect_plat</button>
+                               </div>
+                             <div class="tab-pane" id="panel-16">
+                                <p><span class="STYLE9"><strong>其他相关</strong></span></p>
+                                    <button class="btn btn-primary " type="button" onClick="window.open('/sun/other/tus','_self')">图床功能</button>
+                                    <button class="btn btn-primary " type="button" onClick="window.open('/sun/other/salt','_self')">salt功能</button>
+                            </div>
+                             <div class="tab-pane" id="panel-17">
+                                <p><span class="STYLE9"><strong>jar包替换</strong></span></p>
+                                    <button class="btn btn-primary " type="button" onClick="window.open('/sun/pay/access_common_index','_self')">现金牛业务access-common-*.jar匹配多jar包替换页面</button>
+                                <p></p><p></p>
+                                <p><span class="STYLE9"><strong>现金牛业务</strong></span></p>
+                                    <button class="btn btn-primary " type="button" onClick="window.open('/sun/pay/pay_gamebase_android_index','_self')">chss-access-gamebase-android-stand-alone</button>
+                                    <button class="btn btn-primary " type="button" onClick="window.open('/sun/pay/chss_monitor_index','_self')">chss_monitor</button>
+                                    <button class="btn btn-primary " type="button" onClick="window.open('/sun/pay/chss_access_zhhy_demo_index','_self')">chss_access_zhhy_demo</button>
+                                    <p></p>
+                                    <button class="btn btn-primary " type="button" onClick="window.open('/sun/pay/access_conf_plugin_index','_self')">access_conf_plugin</button>
+                             </div>
+                            <div class="tab-pane" id="panel-18">
+                                <p><span class="STYLE9"><strong>冒泡业务部</strong></span></p>
+                                <p><span class="STYLE9">jar包替换</span></p>
+                                    <button class="btn btn-primary " type="button" onClick="window.open('/sun/maopao/sms_charge_index','_self')">功能机业务sms_charge.jar</button>
+                                    <button class="btn btn-primary " type="button" onClick="window.open('/sun/maopao/sms_charge_manager_index','_self')">功能机业务-管理后台-sms_charge_manager.jar</button>
+                                <p></p>
+                                <p><span class="STYLE9">工程部署</span></p>
+                                <div class="btn-group btn-group">
+                                    <button class="btn btn-primary " type="button" onClick="window.open('/sun/maopao/transfer_server_index','_self')">transfer-server</button>
+                                    <button class="btn btn-primary " type="button" onClick="window.open('/sun/maopao/transfer_manager_index','_self')">transfer-manager</button>
+                                    <button class="btn btn-primary " type="button" onClick="window.open('/sun/maopao/eureka_server_index','_self')">eureka_server</button>
+                                    <button class="btn btn-primary " type="button" onClick="window.open('/sun/maopao/static_alphaApplication_index','_self')">静态文件_alphaApplication</button>
+                                </div>
+                                <p></p>
+                                <button class="btn btn-primary " type="button" onClick="window.open('/sun/maopao/static_webmrply_index','_self')">静态文件_h5.imopo.net/ly/</button>
+                            </div>
+
+                        <!--
+
+                            <div class="tab-pane" id="panel-17">
+                                <p><span class="STYLE9"><strong>发5</strong></span></p>
+
+                            </div>
+                            <div class="tab-pane" id="panel-18">
+
+                            </div>
+                            <div class="tab-pane" id="panel-19">
+
+                            </div>
+            <div class="tab-pane" id="panel-20">
+              <p><span class="STYLE9">平台查询程序</span></p>
+   <div class="btn-group btn-group">
+      <button class="btn btn-primary " type="button" onClick="window.open('http://192.168.3.31/checkip.html','_blank')">数据库列表及负载查询</button>
+      <button class="btn btn-primary " type="button" onClick="window.open('http://192.168.3.31/sip.html','_blank')">硬件查询页面</button>
+   </div>
+   <p></p>
+   <p><span class="STYLE9">监控程序</span></p>
+   <div class="btn-group btn-group">
+      <button class="btn btn-primary " type="button" onClick="window.open('http://192.168.3.149/zabbix','_blank')">zabbix监控平台</button>
+      <button class="btn btn-primary " type="button" onClick="window.open('http://115.236.185.100:888/icinga/','_blank')">icinga监控平台</button>
+      <button class="btn btn-primary " type="button" onClick="window.open('http://192.168.3.70/','_blank')">机房流量MRTG</button>
+      <button class="btn btn-primary " type="button" onClick="window.open('http://192.168.3.138:8082/login.do','_blank')">程序超时监控</button>
+       <button class="btn btn-primary " type="button" onClick="window.open(' http://199.155.122.134:3002/node-zk','_blank')">zookeeper</button>
+   </div>
+    <p></p>
+   <p><span class="STYLE9">hadoop程序</span></p>
+   <div class="btn-group btn-group">
+      <button class="btn btn-primary " type="button" onClick="window.open('http://10.0.0.178:7180','_blank')">hadoop后台</button>
+   <button class="btn btn-primary " type="button" onClick="window.open('http://10.0.0.178:50030/jobtracker.jsp','_blank')">hadoop任务查询</button>
+      <button class="btn btn-primary " type="button" onClick="window.open('http://10.0.0.178:50070/dfshealth.jsp','_blank')">hadoop总大小</button>
+   </div> <p></p>
+   <p><span class="STYLE9">其他链接</span></p>
+  <div class="btn-group btn-group">
+    <button class="btn btn-primary " type="button" onClick="window.open('http://199.155.122.189:8082','_blank')">conflunce</button>
+    <button class="btn btn-primary " type="button" onClick="window.open('http://199.155.122.189:8095/crowd/console/secure/application/browse.action','_blank')">conflunce增加账号</button>
+   </div>
+   <div class="btn-group btn-group">
+   <button class="btn btn-primary " type="button" onClick="window.open('https://www.aliyun.com/','_blank')">阿里云</button>
+   <button class="btn btn-primary " type="button" onClick="window.open('http://cloud.taobao.com/','_blank')">聚石塔</button>
+   </div>
+  <div class="btn-group btn-group">
+      <button class="btn btn-primary " type="button" onClick="window.open('https://www.dnspod.cn/','_blank')">DNSPod</button>
+      <button class="btn btn-primary " type="button" onClick="window.open('http://www.net.cn/','_blank')">万网</button>
+   </div>
+   <button class="btn btn-primary " type="button" onClick="window.open('https://www.upyun.com/','_blank')">又拍云</button>
+   <p></p>
+   <div class="btn-group btn-group">
+   <button class="btn btn-primary " type="button" onClick="window.open('http://192.168.3.31/turegist.html','_blank')">图片生成公网链接(图床)</button>
+   <button class="btn btn-success " type="button" onClick="window.open('http://192.168.3.31/tus.html','_blank')">批量图片生成公网链接(图床)</button>
+   </div>
+   <button class="btn btn-primary " type="button" onClick="window.open('http://192.168.3.31/videoup.html','_blank')">视频生成公网链接(至云端)</button>
+             </div>
+           </div>
+</div>
+          <div class="col-md-2">
+              <!-- <img alt="140x140" src="http://img.taotaosou.com/image17/M03/00/08/CgAAQVi46AgIAAAAAAAqY0jeQ4sAACZtwB2QkUAACp7749.jpg" onclick='window.open("http://www.xx.com")' title='主页"  > -->
+          </div>
+     </div>
+
+
+
+<div class="row">
+  <div class="col-md-6">
+     <div  id="main" style="width: 600px;height:400px; background:white"></div>
+
+  <div class="col-md-6"></div>
+</div>
+
+
+
+
+</div>
+
+
+    <div align="left">
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+    <address class="STYLE9">
+    <strong>v1.1.3</strong><br />
+    </address>
+    </div>
+
+ <script type="text/javascript">
+var myChart = echarts.init(document.getElementById('main'));
+
+   var option = {
+    color: ['#3398DB'],
+    tooltip : {
+        trigger: 'axis',
+        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+        }
+    },
+    title: {
+        text: '过去一周工程部署次数统计',
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true,
+        color: ['#FFFFFF']
+    },
+    xAxis : [
+        {
+            type : 'category',
+            data : ['{{RQ7}}', '{{RQ6}}', '{{RQ5}}', '{{RQ4}}', '{{RQ3}}', '{{RQ2}}', '{{RQ1}}'],
+            axisTick: {
+                alignWithLabel: true
+            }
+        }
+    ],
+    yAxis : [
+        {
+            type : 'value',
+        }
+    ],
+    series : [
+        {
+            name:'部署次数',
+            type:'bar',
+            barWidth: '60%',
+            data : [{{SQL_RQ7}}, {{SQL_RQ6}}, {{SQL_RQ5}}, {{SQL_RQ4}}, {{SQL_RQ3}}, {{SQL_RQ2}}, {{SQL_RQ1}}],
+        }
+    ]
+};
+
+
+        myChart.setOption(option);
+    </script>
+
+</body>
+</html>

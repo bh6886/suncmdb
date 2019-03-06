@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+     <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+<table id="example" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>第一列</th>
+                <th>第二列</th>
+{#                <th>第三列</th>#}
+{#                <th>第四列</th>#}
+{#                <th>第五列e</th>#}
+{#                <th>第六列</th>#}
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>第一列</th>
+                <th>第二列</th>
+{#                <th>第三列</th>#}
+{#                <th>第四列</th>#}
+{#                <th>第五列e</th>#}
+{#                <th>第六列</th>#}
+            </tr>
+        </tfoot>
+    </table>
+ <script type="text/javascript">
+$(document).ready(function() {
+    $('#example').DataTable( {
+        "processing": true,
+        {#"serverSide": true,#}
+        {# "searching" : false,#}
+        {#"paging":   false,#}
+        {#"ordering": false,#}
+        {#"info":     false,#}
+        "ajax": "http://127.0.0.1:8000/get"
+    } );
+} );
+
+</script>
+
+</body>
+</html>
